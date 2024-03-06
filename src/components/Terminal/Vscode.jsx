@@ -16,15 +16,15 @@ function Vscode() {
   };
 
   return (
-    <div className="flex justify-center border border-solid rounded-lg border-[#411A83] w-[50%]">
+    <div className="flex justify-center border border-solid rounded-lg border-[#411A83] bg-black w-auto">
       {code && (
         <div className="pl-8">
           {generateLineNumbers()}
         </div>
       )}
-      <div className="flex-1 resize-none">
+      <div className="flex resize-none ">
         <textarea 
-          className="w-full h-full outline-none bg-black text-white pl-4"
+          className="w-96 h-auto outline-none bg-black text-white pl-4"
           value={code}
           onChange={handleChange}
           placeholder="Ecrivez votre code ici..."
