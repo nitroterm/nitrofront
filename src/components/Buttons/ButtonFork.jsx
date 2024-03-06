@@ -17,7 +17,7 @@ function ButtonFork() {
   return (
     <div>
       <button 
-        className={`flex items-center justify-center ${ clicked ? 'bg-[#F9E900]' : 'bg-[#290D59]' } bg-[#290D59] hover:bg-[#411A83] rounded-xl w-14 h-14`}
+        className={`flex items-center justify-center ${ clicked ? 'bg-[#F9E900]' : 'bg-[#290D59]' } bg-[#290D59] hover:bg-[#411A83] rounded-xl w-10 h-10`}
         onClick={handleClick}
         onMouseLeave={handleHover}
         >
