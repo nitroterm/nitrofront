@@ -22,9 +22,9 @@ function Vscode() {
           {generateLineNumbers()}
         </div>
       )}
-      <div className="flex resize-none ">
+      <div className="flex">
         <textarea 
-          className="w-96 h-auto outline-none bg-black text-white pl-4"
+          className="w-96 mt-auto resize-none h-auto outline-none bg-black text-white pl-4"
           value={code}
           onChange={handleChange}
           placeholder="Ecrivez votre code ici..."
