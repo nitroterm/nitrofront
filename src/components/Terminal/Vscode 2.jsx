@@ -9,9 +9,9 @@ function Vscode() {
   };
 
   const generateLineNumbers = () => {
-    const lines = code.split("\n");
-    return lines.map((_, index) => (
-      <div key={index} className="h-6 flex items-center justify-center bg-black text-white">{index + 1}</div>
+    const numLines = code.split("\n").length;
+    return [...Array(numLines).keys()].map((lineNumber) => (
+      <div key={lineNumber} className="h-6 flex items-center justify-center bg-black text-white">{lineNumber + 1}</div>
     ));
   };
 
@@ -22,9 +22,9 @@ function Vscode() {
           {generateLineNumbers()}
         </div>
       )}
-      <div className="flex">
+      <div className="flex resize-none ">
         <textarea 
-          className="w-96 h-auto resize-none outline-none bg-black text-white pl-4"
+          className="w-96 h-auto outline-none bg-black text-white pl-4"
           value={code}
           onChange={handleChange}
           placeholder="Ecrivez votre code ici..."
