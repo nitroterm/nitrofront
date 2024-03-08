@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
-function InputPassword() {
+function InputPassword({
+    text
+}) {
 
     const [isFocused, setIsFocused] = useState(false);
 
@@ -27,7 +29,7 @@ function InputPassword() {
                 isFocused ? '-top-2 text-[#F9E900] text-sm pt-2' : 'mt-2 text-[#F9E900]'
               } pointer-events-none transition-all duration-300`}
         >
-            Password
+            {text}
         </label>
     </div>
   )
