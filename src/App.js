@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header/Header';
 import ButtonRegister from './components/Buttons/ButtonRegister';
 import Cards from './components/Cards/Cards';
+import ButtonDynamite from './components/Buttons/ButtonDynamite';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         id={'@flofloflofloflo'}
         title={'Tema mon composant React :'}
         />
+      </div>
+      <div>
+        <ButtonDynamite />
       </div>
     </div>
   );
