@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import BadgeProduct from './Badges/BadgeProduct';
-import ButtonNitro from './Buttons/ButtonNitro';
-import ButtonFork from './Buttons/ButtonFork';
-import Vscode from '../components/Terminal/Vscode'; // Importez votre composant VSCode-like ici
-import ButtonLogin from './Buttons/ButtonLogin';
+import BadgeProduct from '../Badges/BadgeProduct';
+import ButtonNitro from '../Buttons/ButtonNitro';
+import ButtonFork from '../Buttons/ButtonFork';
+import Vscode from '../Terminal/Vscode';
+import ButtonLogin from '../Buttons/ButtonLogin';
 
 function Cards({
     time,

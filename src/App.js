@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './components/Header/Header';
 import ButtonRegister from './components/Buttons/ButtonRegister';
-import Cards from './components/Cards';
+import Cards from './components/Cards/Cards';
 
 function App() {
   return (
