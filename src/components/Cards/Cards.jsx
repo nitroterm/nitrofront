@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import BadgeProduct from '../Badges/BadgeProduct';
 import ButtonNitro from '../Buttons/ButtonNitro';
+import ButtonDynamite from '../Buttons/ButtonDynamite';
 import ButtonFork from '../Buttons/ButtonFork';
 import Vscode from '../Terminal/Vscode';
 import ButtonLogin from '../Buttons/ButtonLogin';
@@ -37,6 +38,7 @@ function Cards({
           <div className='ml-auto flex items-end'>
             <div className='ml-2 flex flex-col gap-1 items-center'>
               <ButtonNitro />
+              <ButtonDynamite />
               <ButtonFork />
             </div>
           </div>
