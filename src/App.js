@@ -1,28 +1,18 @@
 import React from 'react';
-import Header from './components/Header/Header';
-import ButtonRegister from './components/Buttons/ButtonRegister';
-import Cards from './components/Cards';
+import {HashRouter as Router, Routes, Route } from "react-router-dom";
+import Home from './Home';
+import Login from './Login';
 
 function App() {
   return (
-    <div>
+    <Router>
       <div>
-        <Header />
+        <Routes>
+          <Route path={'/'} element={<Home />} />
+          <Route path={'/login'} element={<Login />} />
+        </Routes>
       </div>
-      <div className='ml-16 mt-12'>
-        <ButtonRegister text="Write something"/>
-      </div>
-      <div className='flex justify-center'>
-        <Cards 
-        time={'03/03/2024 at 17:50'}
-        srcImg={'https://picsum.photos/seed/picsum/200/300'}
-        name={'Monsieur Front'}
-        language={'React'}
-        id={'@flofloflofloflo'}
-        title={'Tema mon composant React :'}
-        />
-      </div>
-    </div>
+    </Router>
   );
 }
 
