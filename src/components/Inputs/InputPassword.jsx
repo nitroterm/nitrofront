@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function InputPassword() {
+function InputPassword({placeholder}) {
     const [inputValue, setInputValue] = useState('');
     const [isFocused, setIsFocused] = useState(false);
 
@@ -32,7 +32,7 @@ function InputPassword() {
                 isFocused || inputValue ? '-top-2 text-[#F9E900] text-sm pt-2' : ' text-[#F9E900]'
               } pointer-events-none transition-all duration-300`}
         >
-            Password
+            {placeholder}
         </label>
     </div>
   )

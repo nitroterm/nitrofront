@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function InputText() {
+function InputText({ placeholder }) {
     const [inputValue, setInputValue] = useState('');
     const [isFocused, setIsFocused] = useState(false);
 
@@ -17,7 +17,7 @@ function InputText() {
     };
 
     return (
-        <div className='relative mb-2 flex items-center'>
+        <div className='relative flex items-center'>
             <input
                 type='text'
                 id='inputText'
@@ -34,7 +34,7 @@ function InputText() {
                     isFocused || inputValue ? '-top-2 text-[#F9E900] text-sm pt-2' : ' text-[#F9E900]'
                 } pointer-events-none transition-all duration-300`}
             >
-                Username
+                {placeholder}
             </label>
         </div>
     );
