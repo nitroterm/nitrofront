@@ -30,7 +30,7 @@ function InputPassword({placeholder}) {
             htmlFor='inputPassword'
             className={`absolute left-4 ${
                 isFocused || inputValue ? '-top-2 text-[#F9E900] text-sm pt-2' : ' text-[#F9E900]'
-              } pointer-events-none transition-all duration-300`}
+              } pointer-events-none`}
         >
             {placeholder}
         </label>
