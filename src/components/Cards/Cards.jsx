@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import BadgeProduct from './Badges/BadgeProduct';
-import ButtonNitro from './Buttons/ButtonNitro';
-import ButtonFork from './Buttons/ButtonFork';
-import Vscode from '../components/Terminal/Vscode'; // Importez votre composant VSCode-like ici
-import ButtonLogin from './Buttons/ButtonLogin';
+import BadgeProduct from '../Badges/BadgeProduct';
+import ButtonNitro from '../Buttons/ButtonNitro';
+import ButtonDynamite from '../Buttons/ButtonDynamite';
+import ButtonFork from '../Buttons/ButtonFork';
+import Vscode from '../Terminal/Vscode';
+import ButtonLogin from '../Buttons/ButtonLogin';
 
 function Cards({
     time,
@@ -37,6 +38,7 @@ function Cards({
           <div className='ml-auto flex items-end'>
             <div className='ml-2 flex flex-col gap-1 items-center'>
               <ButtonNitro />
+              <ButtonDynamite />
               <ButtonFork />
             </div>
           </div>
@@ -53,7 +55,7 @@ function Cards({
           </div>
       {editMode === 'normal' && (
         <div className='flex'>
-          <textarea className='text-black h-auto w-96 outline-none rounded-lg font-bold text-[20px] mt-auto'>{post}</textarea>
+          <textarea className='text-black h-auto w-96 outline-none rounded-lg font-bold text-[20px] mt-auto pl-2'>{post}</textarea>
         </div>
       )}
       {editMode === 'terminal' && (
