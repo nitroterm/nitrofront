@@ -15,7 +15,7 @@ function Home() {
                     <ButtonRegister text="Write something"/>
                     <ButtonMenu text="Your Feed"/>
                 </div>
-                <div>
+                <div className='flex flex-col justify-center ml-60 mt-12'>
                     <h1 className='text-[#F9E900] text-center text-bold text-[30px] mr-72 mb-4'>Your Feed</h1>
                         <div className='flex justify-center'>
                             <Cards
