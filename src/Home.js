@@ -1,7 +1,8 @@
 import React from 'react';
 import Header from './components/Header/Header';
 import ButtonRegister from './components/Buttons/ButtonRegister';
-import Cards from './components/Cards';
+import Cards from './components/Cards/Cards.jsx';
+import {Link} from "react-router-dom";
 
 function Home() {
     return (
@@ -22,6 +23,7 @@ function Home() {
                     title={'Tema mon composant React :'}
                 />
             </div>
+            <Link to="/onboarding"><button className='text-black bg-[#F9E900] hover:bg-[#FFF564] w-96 p-2 transition duration-300 rounded-lg border border-yellow-300 px-10 font-bold text-[15px]'>okkkkkkk</button></Link>
         </div>
     );
 }
