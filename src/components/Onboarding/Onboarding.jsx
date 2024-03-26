@@ -6,7 +6,7 @@ import CardOnboarding from "../Cards/CardOnboarding";
 import Icon from "../img/Icon.png";
 import {Link} from "react-router-dom";
 
-function OnboardingStep1({onNext, onPrev}) {
+function OnboardingStep1({onNext}) {
     return (
         <div className='flex flex-wrap bg-[#080016] w-7/12 text-white justify-center items-center border border-purple-900 rounded-lg'>
             <div className='flex'>
@@ -28,7 +28,7 @@ function OnboardingStep1({onNext, onPrev}) {
                             <InputBio placeholder='Bio'/>
                         </div>
                         <div className='flex gap-2 mt-28 pb-16'>
-                            <button onClick={onPrev} className='text-white bg-[#290D59] hover:bg-[#411A83] w-40 p-2 transition duration-300 rounded-lg border border-purple-900 px-10 font-bold text-[15px]'>Back</button>
+                            <Link to="/register"><button className='text-white bg-[#290D59] hover:bg-[#411A83] w-40 p-2 transition duration-300 rounded-lg border border-purple-900 px-10 font-bold text-[15px]'>Back</button></Link>
                             <button onClick={onNext} className='text-black bg-[#F9E900] hover:bg-[#FFF564] w-56 p-2 transition duration-300 rounded-lg border border-yellow-300 px-10 font-bold text-[15px]'>Next</button>
                         </div>
                     </div>
