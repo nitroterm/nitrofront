@@ -4,6 +4,7 @@ import Home from './Home';
 import Login from './Login';
 import Register from './Register';
 import OnboardingPage from './OnboardingPage';
+import Parametre from './Parametre';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path={'/login'} element={<Login />} />
           <Route path={'/register'} element={<Register />} />
           <Route path={'/onboarding'} element={<OnboardingPage />} />
+          <Route path={'/parametre'} element={<Parametre />} />
         </Routes>
       </div>
     </Router>

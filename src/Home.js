@@ -1,8 +1,7 @@
 import React from 'react';
 import Header from './components/Header/Header';
-import ButtonRegister from './components/Buttons/ButtonRegister';
-import ButtonMenu from './components/Buttons/ButtonMenu';
 import Cards from './components/Cards/Cards.jsx';
+import Sidebar from './components/Sidebar/Sidebar.jsx';
 
 function Home() {
     return (
@@ -10,11 +9,8 @@ function Home() {
             <div>
                 <Header />
             </div>
-            <div className='absolute flex justify-center'>
-                <div className='ml-16 mt-12'>
-                    <ButtonRegister text="Write something"/>
-                    <ButtonMenu text="Your Feed"/>
-                </div>
+            <div className='h-full flex'>
+                <Sidebar />
                 <div className='flex flex-col justify-center ml-60 mt-12'>
                     <h1 className='text-[#F9E900] text-center text-bold text-[30px] mr-72 mb-4'>Your Feed</h1>
                         <div className='flex justify-center'>
