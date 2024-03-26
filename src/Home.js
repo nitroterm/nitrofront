@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header/Header';
 import ButtonRegister from './components/Buttons/ButtonRegister';
 import Cards from './components/Cards/Cards.jsx';
+import ButtonMenu from './components/Buttons/ButtonMenu';
 
 function Home() {
     return (
