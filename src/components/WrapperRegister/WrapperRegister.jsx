@@ -17,7 +17,7 @@ function WrapperRegister({textLogin, text}) {
                     <InputPassword placeholder='Confirm Password'/>
                 </div>
                 <div className='flex flex-col mt-12 gap-2'>
-                    <Link to="/"><button className='text-black bg-[#F9E900] hover:bg-[#FFF564] w-96 p-2 transition duration-300 rounded-lg border border-yellow-300 px-10 font-bold text-[15px]'>{textLogin}</button></Link>
+                    <Link to="/onboarding"><button className='text-black bg-[#F9E900] hover:bg-[#FFF564] w-96 p-2 transition duration-300 rounded-lg border border-yellow-300 px-10 font-bold text-[15px]'>{textLogin}</button></Link>
                     <Link to="/login"><button className='text-white bg-[#290D59] hover:bg-[#411A83] w-96 p-2 transition duration-300 rounded-lg border border-purple-900 px-10 font-bold text-[15px]'>{text}</button></Link>
                 </div>
             </div>

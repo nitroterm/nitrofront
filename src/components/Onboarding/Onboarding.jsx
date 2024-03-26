@@ -4,6 +4,7 @@ import InputBio from "../Inputs/InputBio";
 import SearchBar from "../SearchBar/SearchBar";
 import CardOnboarding from "../Cards/CardOnboarding";
 import Icon from "../img/Icon.png";
+import {Link} from "react-router-dom";
 
 function OnboardingStep1({onNext, onPrev}) {
     return (
@@ -54,10 +55,10 @@ function OnboardingStep2({onNext, onPrev}) {
                     </div>
                 </div>
                 <div className='flex flex-col items-center mr-12 ml-6 mt-24'>
-                    <div className='mr-1'>
+                    <div className='mr-1 mt-3'>
                         <div className='flex flex-col gap-3'>
                             <SearchBar />
-                            <div className='flex flex-wrap gap-1'>
+                            <div className='flex flex-wrap gap-1 mt-4'>
                                 <CardOnboarding img={Icon} name={'Apple'} hashtag={'apple'}/>
                                 <CardOnboarding img={Icon} name={'Windobe'} hashtag={'windobe'}/>
                                 <CardOnboarding img={Icon} name={'Linux'} hashtag={'linux'}/>
@@ -65,7 +66,7 @@ function OnboardingStep2({onNext, onPrev}) {
                         </div>
                         <div className='flex gap-2 mt-32 pb-16'>
                             <button onClick={onPrev} className='text-white bg-[#290D59] hover:bg-[#411A83] w-40 p-2 transition duration-300 rounded-lg border border-purple-900 px-10 font-bold text-[15px]'>Back</button>
-                            <button onClick={onNext} className='text-black bg-[#F9E900] hover:bg-[#FFF564] w-56 p-2 transition duration-300 rounded-lg border border-yellow-300 px-10 font-bold text-[15px]'>Finish</button>
+                            <Link to="/"><button onClick={onNext} className='text-black bg-[#F9E900] hover:bg-[#FFF564] w-56 p-2 transition duration-300 rounded-lg border border-yellow-300 px-10 font-bold text-[15px]'>Finish</button></Link>
                         </div>
                     </div>
                 </div>
