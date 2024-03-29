@@ -19,7 +19,7 @@ function Cards({
   const [editMode, setEditMode] = useState('normal');
 
   return (
-    <div className='border-2 border-[#411A83] rounded-2xl w-auto p-3'>
+    <div className='border-2 border-[#411A83] rounded-2xl w-auto p-3 my-4'>
       <div className='absolute'>
         <p className='text-[#D4D3DC] text-sm'>{time}</p>
       </div>
