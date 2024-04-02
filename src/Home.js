@@ -2,7 +2,6 @@ import React from 'react';
 import Header from './components/Header/Header';
 import Cards from './components/Cards/Cards.jsx';
 import Sidebar from './components/Sidebar/Sidebar.jsx';
-import AnswerInputBox from './components/Inputs/AnswerInputBox.jsx';
 
 function Home() {
     return (
@@ -14,9 +13,6 @@ function Home() {
                 <Sidebar />
                 <div className='flex'>
                     <div className='flex flex-col justify-center ml-60 mt-12'>
-                    <div>
-                            <AnswerInputBox />
-                        </div>
                         <h1 className='text-[#F9E900] text-center text-bold text-[30px] mr-72 mb-4'>Your Feed</h1>
                         <div className='flex justify-center'>
                             <Cards
