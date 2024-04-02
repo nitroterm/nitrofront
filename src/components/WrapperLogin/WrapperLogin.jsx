@@ -12,8 +12,8 @@ function WrapperLogin({textLogin, text}) {
             </div>
             <div className='flex flex-col items-center mr-6 gap-12 mt-36'>
                 <div className='flex flex-col gap-2'>
-                    <InputText placeholder='Username'/>
-                    <InputPassword placeholder='Password'/>
+                    <InputText id="input_username" placeholder='Username'/>
+                    <InputPassword id="input_password" placeholder='Password'/>
                 </div>
                 <div className='flex flex-col gap-2'>
                     <Link to="/"><button className='text-black bg-[#F9E900] hover:bg-[#FFF564] w-96 p-2 transition duration-300 rounded-lg border border-yellow-300 px-10 font-bold text-[15px]'>{text}</button></Link>
