@@ -18,14 +18,14 @@ function OnboardingStep1({onNext, onPrev}) {
                     <div className='flex flex-col mb-44 mr-12'>
                         <p className='text-[#F9E900] text-xs mt-2'>1/2</p>
                         <h1 className='font-bold pt-6 text-2xl text-[#F9E900]'>Let’s setup your account</h1>
-                        <h3 className='font-bold'>Your itentity</h3>
+                        <h3 className='font-bold'>Your identity</h3>
                     </div>
                 </div>
                 <div className='flex flex-col items-center ml-10 mt-32'>
                     <div>
                         <div className='flex flex-col gap-3'>
-                            <InputText placeholder="Your name"/>
-                            <InputBio placeholder='Bio'/>
+                            <InputText id="input_name" placeholder="Your name"/>
+                            <InputBio id="input_bio" placeholder='Bio'/>
                         </div>
                         <div className='flex gap-2 mt-28 pb-16'>
                             <button onClick={onPrev} className='text-white bg-[#290D59] hover:bg-[#411A83] w-40 p-2 transition duration-300 rounded-lg border border-purple-900 px-10 font-bold text-[15px]'>Back</button>
