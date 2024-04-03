@@ -42,12 +42,13 @@ function sendRegister() {
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log('Success:', data);
+            console.log('Success:', data.success);
+            console.log('Message:', data.message);
             // Return to main page
-            window.location.href = '/';
+            window.location.href = '/#onboarding';
         })
         .catch((error) => {
-            console.error('Error:', error);
+            console.error('Error:', error.message);
         });
 }
 

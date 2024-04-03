@@ -2,6 +2,7 @@ import React from 'react';
 import InputText from "../Inputs/InputText";
 import InputPassword from "../Inputs/InputPassword";
 import {Link} from "react-router-dom";
+import secureLocalStorage from 'react-secure-storage';
 
 function WrapperLogin({textLogin, text}) {
     return (
@@ -16,12 +17,39 @@ function WrapperLogin({textLogin, text}) {
                     <InputPassword id="input_password" placeholder='Password'/>
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <Link to="/"><button className='text-black bg-[#F9E900] hover:bg-[#FFF564] w-96 p-2 transition duration-300 rounded-lg border border-yellow-300 px-10 font-bold text-[15px]'>{text}</button></Link>
+                    <button onClick={sendRegister} className='text-black bg-[#F9E900] hover:bg-[#FFF564] w-96 p-2 transition duration-300 rounded-lg border border-yellow-300 px-10 font-bold text-[15px]'>{text}</button>
                     <Link to="/register"><button className='text-white bg-[#290D59] hover:bg-[#411A83] w-96 p-2 transition duration-300 rounded-lg border border-purple-900 px-10 font-bold text-[15px]'>{textLogin}</button></Link>
                 </div>
             </div>
         </div>
     );
+}
+
+function sendRegister() {
+    fetch('https://services.cacahuete.dev/api/nitroterm/v1/auth/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: document.getElementById('input_username').value,
+            password: document.getElementById('input_password').value
+        }),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.success === false) {
+                alert(data.message);
+                return;
+            }
+
+            secureLocalStorage.setItem('token', data.data.token);
+
+            window.location.href = '/';
+        })
+        .catch((error) => {
+            console.error('Error:', error.message);
+        });
 }
 
 export default WrapperLogin;
