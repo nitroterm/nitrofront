@@ -17,18 +17,18 @@ function Vscode() {
 
   return (
     <div className="flex justify-center border border-solid rounded-lg border-[#411A83] bg-black w-auto">
-      {code && (
-        <div className="pl-8">
+      {code.length > 0 && (
+        <div className="pl-2 pr-2">
           {generateLineNumbers()}
         </div>
       )}
-      <div className="flex">
+      <div className="flex pl-2">
         <textarea 
-          className="w-96 h-auto resize-none outline-none bg-black text-white pl-4"
+          className="w-96 h-auto resize-none outline-none bg-black text-white"
           value={code}
           onChange={handleChange}
-          placeholder="Ecrivez votre code ici..."
-        ></textarea>
+          placeholder='Write your code here...'
+        >{generateLineNumbers()}</textarea>
       </div>
     </div>
   );
