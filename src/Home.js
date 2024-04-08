@@ -2,7 +2,6 @@ import React from 'react';
 import Header from './components/Header/Header';
 import Cards from './components/Cards/Cards.jsx';
 import Sidebar from './components/Sidebar/Sidebar.jsx';
-import ButtonMenu from './components/Buttons/ButtonMenu';
 
 function Home() {
     return (
@@ -23,7 +22,7 @@ function Home() {
                             name={'Monsieur Front'}
                             language={'React'}
                             id={'@flofloflofloflo'}
-                            title={'Tema mon composant React :'}
+                            title={'Salut les gars !'}
                         />
                     </div>
                     <div className='flex justify-center'>

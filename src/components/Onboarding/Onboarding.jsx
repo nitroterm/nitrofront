@@ -4,7 +4,6 @@ import InputBio from "../Inputs/InputBio";
 import SearchBar from "../SearchBar/SearchBar";
 import CardOnboarding from "../Cards/CardOnboarding";
 import Icon from "../img/Icon.png";
-import {Link} from "react-router-dom";
 import secureLocalStorage from 'react-secure-storage';
 
 function OnboardingStep1({onNext, onPrev}) {
