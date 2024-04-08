@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function InputText({ placeholder }) {
+function InputText({ id, placeholder }) {
     const [inputValue, setInputValue] = useState('');
     const [isFocused, setIsFocused] = useState(false);
 
@@ -20,7 +20,7 @@ function InputText({ placeholder }) {
         <div className='relative flex items-center'>
             <input
                 type='text'
-                id='inputText'
+                id={id}
                 className='font-bold bg-[#0E0025] border border-purple-950 w-96 text-white rounded-lg pl-4 p-1 pt-6'
                 placeholder=' '
                 value={inputValue}

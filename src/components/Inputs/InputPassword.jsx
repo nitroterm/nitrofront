@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function InputPassword({placeholder}) {
+function InputPassword({id, placeholder}) {
     const [inputValue, setInputValue] = useState('');
     const [isFocused, setIsFocused] = useState(false);
 
@@ -19,6 +19,7 @@ function InputPassword({placeholder}) {
   return (
     <div className='relative items-center flex justify-center'>
         <input
+            id={id}
             type='password'
             className='font-bold bg-[#0E0025] border border-purple-950 w-96 h-14 text-white rounded-lg pl-4 p-1 pt-2'
             onChange={handleChange}

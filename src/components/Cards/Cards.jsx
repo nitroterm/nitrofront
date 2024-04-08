@@ -20,7 +20,7 @@ function Cards({
   const [editMode, setEditMode] = useState('normal');
 
   return (
-    <div className='border-2 border-[#411A83] rounded-2xl w-auto p-3'>
+    <div className='border-2 border-[#411A83] rounded-2xl w-auto p-3 my-4'>
       <div className='absolute'>
         <p className='text-[#D4D3DC] text-sm'>{time}</p>
       </div>
@@ -41,7 +41,9 @@ function Cards({
                     <ButtonLike/>
                 </div>
             </div>
-            <div className='ml-auto flex items-end'>
+            <p className='text-[15px]'>{id}</p>
+          </div>
+          <div className='ml-auto flex items-end'>
             <div className='ml-2 flex flex-col gap-1 items-center'>
               <ButtonNitro />
               <ButtonDynamite />
@@ -61,7 +63,7 @@ function Cards({
           </div>
       {editMode === 'normal' && (
         <div className='flex'>
-          <textarea className='text-black h-auto w-96 outline-none rounded-lg font-bold text-[20px] mt-auto pl-2'>{post}</textarea>
+          <textarea className='text-black h-auto w-96 resize-none outline-none rounded-lg font-bold text-[20px] mt-auto pl-2'>{post}</textarea>
         </div>
       )}
       {editMode === 'terminal' && (

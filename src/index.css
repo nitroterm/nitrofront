@@ -4,7 +4,6 @@
 
 @layer base {
   body {
-      background-image: url('./components/img/background.png');
-      background-size: cover;
+      background-color: #080016;
   }
 }

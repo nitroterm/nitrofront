@@ -5,8 +5,12 @@ import SearchBar from "../SearchBar/SearchBar";
 import CardOnboarding from "../Cards/CardOnboarding";
 import Icon from "../img/Icon.png";
 import {Link} from "react-router-dom";
+import secureLocalStorage from 'react-secure-storage';
 
-function OnboardingStep1({onNext}) {
+function OnboardingStep1({onNext, onPrev}) {
+    const updateProfileCall = () => {
+        updateProfil(onNext);
+    }
     return (
         <div className='flex flex-wrap bg-[#080016] w-7/12 text-white justify-center items-center border border-purple-900 rounded-lg'>
             <div className='flex'>
@@ -18,18 +22,18 @@ function OnboardingStep1({onNext}) {
                     <div className='flex flex-col mb-44 mr-12'>
                         <p className='text-[#F9E900] text-xs mt-2'>1/2</p>
                         <h1 className='font-bold pt-6 text-2xl text-[#F9E900]'>Let’s setup your account</h1>
-                        <h3 className='font-bold'>Your itentity</h3>
+                        <h3 className='font-bold'>Your identity</h3>
                     </div>
                 </div>
                 <div className='flex flex-col items-center ml-10 mt-32'>
                     <div>
                         <div className='flex flex-col gap-3'>
-                            <InputText placeholder="Your name"/>
-                            <InputBio placeholder='Bio'/>
+                            <InputText id="input_name" placeholder="Your name"/>
+                            <InputBio id="input_bio" placeholder='Bio'/>
                         </div>
                         <div className='flex gap-2 mt-28 pb-16'>
-                            <Link to="/register"><button className='text-white bg-[#290D59] hover:bg-[#411A83] w-40 p-2 transition duration-300 rounded-lg border border-purple-900 px-10 font-bold text-[15px]'>Back</button></Link>
-                            <button onClick={onNext} className='text-black bg-[#F9E900] hover:bg-[#FFF564] w-56 p-2 transition duration-300 rounded-lg border border-yellow-300 px-10 font-bold text-[15px]'>Next</button>
+                            <button onClick={onPrev} className='text-white bg-[#290D59] hover:bg-[#411A83] w-40 p-2 transition duration-300 rounded-lg border border-purple-900 px-10 font-bold text-[15px]'>Back</button>
+                            <button onClick={updateProfileCall} className='text-black bg-[#F9E900] hover:bg-[#FFF564] w-56 p-2 transition duration-300 rounded-lg border border-yellow-300 px-10 font-bold text-[15px]'>Next</button>
                         </div>
                     </div>
                 </div>
@@ -58,21 +62,74 @@ function OnboardingStep2({onNext, onPrev}) {
                     <div className='mr-1 mt-3'>
                         <div className='flex flex-col gap-3'>
                             <SearchBar />
-                            <div className='flex flex-wrap gap-1 mt-4'>
-                                <CardOnboarding img={Icon} name={'Apple'} hashtag={'apple'}/>
-                                <CardOnboarding img={Icon} name={'Windobe'} hashtag={'windobe'}/>
-                                <CardOnboarding img={Icon} name={'Linux'} hashtag={'linux'}/>
+                            <div className='flex flex-wrap gap-1'>
+                                <button><CardOnboarding img={Icon} id="product_input" name={'Apple'} hashtag={'apple'}/></button>
+                                <button><CardOnboarding img={Icon} id="product_input" name={'Windobe'} hashtag={'windobe'}/></button>
+                                <button><CardOnboarding img={Icon} id="product_input" name={'Linux'} hashtag={'linux'}/></button>
                             </div>
                         </div>
                         <div className='flex gap-2 mt-32 pb-16'>
                             <button onClick={onPrev} className='text-white bg-[#290D59] hover:bg-[#411A83] w-40 p-2 transition duration-300 rounded-lg border border-purple-900 px-10 font-bold text-[15px]'>Back</button>
-                            <Link to="/"><button onClick={onNext} className='text-black bg-[#F9E900] hover:bg-[#FFF564] w-56 p-2 transition duration-300 rounded-lg border border-yellow-300 px-10 font-bold text-[15px]'>Finish</button></Link>
+                            <button onClick={updateProfilStep2} className='text-black bg-[#F9E900] hover:bg-[#FFF564] w-56 p-2 transition duration-300 rounded-lg border border-yellow-300 px-10 font-bold text-[15px]'>Finish</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     );
+}
+
+function updateProfil(onNext) {
+    fetch('https://services.cacahuete.dev/api/nitroterm/v1/user', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + secureLocalStorage.getItem('token')
+        },
+        body: JSON.stringify({
+            username: document.getElementById('input_name').value,
+            bio: document.getElementById('input_bio').value
+        }),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            if (data.success === false) {
+                alert(data.message);
+                return;
+            }
+            
+            onNext();
+        })
+        .catch((error) => {
+            console.error('Error:', error.message);
+        });
+}
+
+function updateProfilStep2(onNext) {
+    fetch('https://services.cacahuete.dev/api/nitroterm/v1/user', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + secureLocalStorage.getItem('token')
+        },
+        body: JSON.stringify({
+            productId: document.getElementById('product_input').value
+        }),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            if (data.success === false) {
+                alert(data.message);
+                return;
+            }
+            
+            window.location.href = '/';
+        })
+        .catch((error) => {
+            console.error('Error:', error.message);
+        });
 }
 
 function Onboarding() {

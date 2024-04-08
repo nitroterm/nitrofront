@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function InputBio({placeholder}) {
+function InputBio({id, placeholder}) {
     const [inputValue, setInputValue] = useState('');
     const [isFocused, setIsFocused] = useState(false);
 
@@ -20,6 +20,7 @@ function InputBio({placeholder}) {
         <div className='relative items-center flex'>
             <div className='flex'>
                 <textarea
+                    id={id}
                     className="font-bold bg-[#0E0025] outline-none border border-purple-950 w-96 h-40 text-white rounded-lg pt-4 pl-3 overflow-auto resize-none"
                     onInput={handleChange}
                     onFocus={handleFocus}
