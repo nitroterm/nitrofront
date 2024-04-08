@@ -5,6 +5,7 @@ import ButtonDynamite from '../Buttons/ButtonDynamite';
 import ButtonFork from '../Buttons/ButtonFork';
 import Vscode from '../Terminal/Vscode';
 import ButtonLogin from '../Buttons/ButtonLogin';
+import ButtonLike from '../Buttons/ButtonLike';
 
 function Cards({
     time,
@@ -28,15 +29,22 @@ function Cards({
           <img src={srcImg} alt="A beautiful landscape" className='rounded-full h-12 w-12' />
         </div>
         <div className='text-white ml-4 flex items-center flex-grow'>
-          <div>
             <div className='flex'>
-              <h2 className='font-bold text-[20px] mr-4'>{name}</h2>
-              <BadgeProduct text={language} />
+                <div className='flex flex-col'>
+                    <h2 className='font-bold text-[20px] mr-4'>{name}</h2>
+                    <p className='text-[15px]'>{id}</p>
+                </div>
+                <div>
+                    <BadgeProduct text={language}/>
+                </div>
+                <div>
+                    <ButtonLike/>
+                </div>
             </div>
             <p className='text-[15px]'>{id}</p>
           </div>
           <div className='ml-auto flex items-end'>
-            <div className='ml-2 flex flex-col gap-2 items-center'>
+            <div className='ml-2 flex flex-col gap-1 items-center'>
               <ButtonNitro />
               <ButtonDynamite />
               <ButtonFork />

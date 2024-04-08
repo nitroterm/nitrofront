@@ -4,13 +4,13 @@ import InputBio from "../Inputs/InputBio";
 import SearchBar from "../SearchBar/SearchBar";
 import CardOnboarding from "../Cards/CardOnboarding";
 import Icon from "../img/Icon.png";
+import {Link} from "react-router-dom";
 import secureLocalStorage from 'react-secure-storage';
 
 function OnboardingStep1({onNext, onPrev}) {
     const updateProfileCall = () => {
         updateProfil(onNext);
     }
-
     return (
         <div className='flex flex-wrap bg-[#080016] w-7/12 text-white justify-center items-center border border-purple-900 rounded-lg'>
             <div className='flex'>
@@ -59,7 +59,7 @@ function OnboardingStep2({onNext, onPrev}) {
                     </div>
                 </div>
                 <div className='flex flex-col items-center mr-12 ml-6 mt-24'>
-                    <div className='mr-1'>
+                    <div className='mr-1 mt-3'>
                         <div className='flex flex-col gap-3'>
                             <SearchBar />
                             <div className='flex flex-wrap gap-1'>
