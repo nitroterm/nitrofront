@@ -65,7 +65,7 @@ function Cards({
         </div>
       )}
       {editMode === 'terminal' && (
-        <div className='flex justify-center'>
+        <div className='flex'>
           <Vscode />
         </div>
       )}
