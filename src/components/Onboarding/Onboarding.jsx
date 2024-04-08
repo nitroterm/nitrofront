@@ -63,9 +63,9 @@ function OnboardingStep2({onNext, onPrev}) {
                         <div className='flex flex-col gap-3'>
                             <SearchBar />
                             <div className='flex flex-wrap gap-1'>
-                                <button><CardOnboarding img={Icon} name={'Apple'} hashtag={'apple'}/></button>
-                                <button><CardOnboarding img={Icon} name={'Windobe'} hashtag={'windobe'}/></button>
-                                <button><CardOnboarding img={Icon} name={'Linux'} hashtag={'linux'}/></button>
+                                <button><CardOnboarding img={Icon} id="product_input" name={'Apple'} hashtag={'apple'}/></button>
+                                <button><CardOnboarding img={Icon} id="product_input" name={'Windobe'} hashtag={'windobe'}/></button>
+                                <button><CardOnboarding img={Icon} id="product_input" name={'Linux'} hashtag={'linux'}/></button>
                             </div>
                         </div>
                         <div className='flex gap-2 mt-32 pb-16'>
@@ -114,7 +114,7 @@ function updateProfilStep2(onNext) {
             'Authorization': 'Bearer ' + secureLocalStorage.getItem('token')
         },
         body: JSON.stringify({
-            productId: document.getElementById('search_input').value
+            productId: document.getElementById('product_input').value
         }),
     })
         .then((response) => response.json())

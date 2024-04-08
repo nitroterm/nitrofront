@@ -55,7 +55,7 @@ function Cards({
           </div>
       {editMode === 'normal' && (
         <div className='flex'>
-          <textarea className='text-black h-auto w-96 outline-none rounded-lg font-bold text-[20px] mt-auto pl-2'>{post}</textarea>
+          <textarea className='text-black h-auto w-96 resize-none outline-none rounded-lg font-bold text-[20px] mt-auto pl-2'>{post}</textarea>
         </div>
       )}
       {editMode === 'terminal' && (
