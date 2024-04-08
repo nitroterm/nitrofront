@@ -41,7 +41,6 @@ function Cards({
                     <ButtonLike/>
                 </div>
             </div>
-            <p className='text-[15px]'>{id}</p>
           </div>
           <div className='ml-auto flex items-end'>
             <div className='ml-2 flex flex-col gap-1 items-center'>
@@ -51,16 +50,15 @@ function Cards({
             </div>
           </div>
         </div>
-      </div>
       <div className="tooltip flex items-start flex-col ml-2 mb-4">
-            <select value={editMode} onChange={(e) => setEditMode(e.target.value)}>
+          <select value={editMode} onChange={(e) => setEditMode(e.target.value)}>
               <option value="normal">Normal</option>
               <option value="terminal">Terminal</option>
-            </select>
-          </div>
-          <div>
-            <p className='text-white text-[20px] font-bold mb-2'>{title}</p>
-          </div>
+          </select>
+      </div>
+      <div>
+          <p className='text-white text-[20px] font-bold mb-2'>{title}</p>
+      </div>
       {editMode === 'normal' && (
         <div className='flex'>
           <textarea className='text-black h-auto w-96 resize-none outline-none rounded-lg font-bold text-[20px] mt-auto pl-2'>{post}</textarea>
