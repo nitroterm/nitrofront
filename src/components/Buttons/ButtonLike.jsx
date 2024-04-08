@@ -9,7 +9,7 @@ function ButtonLike() {
     }
 
   return (
-    <div className='mx-4'>
+    <div className='ml-2 mr-20'>
       <button 
         className={`flex items-center justify-center ${ clicked ? 'bg-[#FF5D70]' : 'bg-[#290D59]' } bg-[#290D59] ${ clicked ? 'hover:bg-[#FF5D70]' : 'hover:bg-[#411A83]' } hover:bg-[#411A83] rounded-xl w-10 h-10`}
         onClick={handleClick}
