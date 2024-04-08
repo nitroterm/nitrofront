@@ -2,6 +2,7 @@ import React from 'react';
 import InputText from "../Inputs/InputText";
 import InputPassword from "../Inputs/InputPassword";
 import {Link} from "react-router-dom";
+import secureLocalStorage from "react-secure-storage";
 
 function WrapperRegister({textLogin, text}) {
     return (
@@ -42,9 +43,13 @@ function sendRegister() {
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log('Success:', data.success);
-            console.log('Message:', data.message);
-            // Return to main page
+            if (!data.success) {
+                alert(data.message);
+                return;
+            }
+
+            secureLocalStorage.setItem('token', data.data.token);
+
             window.location.href = '/#onboarding';
         })
         .catch((error) => {
