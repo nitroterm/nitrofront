@@ -22,12 +22,11 @@ function Home() {
             <div>
                 <Header/>
             </div>
-            <div className='flex'>
-                <div className='flex max-h-screen'>
-                    <Sidebar/>
-                </div>
-                <div className='flex flex-col justify-center ml-60 mt-12 md:justify-center'>
+            <div className='flex flex-col justify-center mt-12'>
                     <h1 className='text-[#F9E900] text-center text-bold text-[30px] mb-4 md:mr-72'>Your Feed</h1>
+                    <div className='absolute'>
+                         <Sidebar />
+                    </div>
                     {
                         posts.length > 0 ?
                         posts.map((post, i) => {

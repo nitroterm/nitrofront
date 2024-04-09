@@ -9,7 +9,7 @@ function WrapperLogin({textLogin, text}) {
     return (
         <div className='flex bg-[#080016] text-white justify-center items-center pb-24 pl-10 pr-10 border border-purple-900 rounded-lg'>
             <div className='flex flex-col mb-44 mr-32'>
-                <img className='w-64 h-24 pb-4' src={require('../img/logo.png')} alt="logo"/>
+                <Link to="/"><img className='w-64 h-24 pb-4' src={require('../img/logo.png')} alt="logo"/></Link>
                 <h1 className='font-bold pt-6 pl-5 text-3xl text-[#F9E900]'>Login to your account</h1>
             </div>
             <div className='flex flex-col items-center mr-6 gap-12 mt-36'>

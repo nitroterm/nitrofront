@@ -21,7 +21,7 @@ function InputPassword({id, placeholder}) {
         <input
             id={id}
             type='password'
-            className='font-bold bg-[#0E0025] border border-purple-950 w-96 h-14 text-white rounded-lg pl-4 p-1 pt-2'
+            className='font-bold bg-[#0E0025] border border-purple-950 w-96 h-14 text-white rounded-lg pl-4 p-1 pt-4'
             onChange={handleChange}
             onFocus={handleFocus}
             onBlur={handleBlur}

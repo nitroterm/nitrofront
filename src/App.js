@@ -5,6 +5,7 @@ import Login from './Login';
 import Register from './Register';
 import OnboardingPage from './OnboardingPage';
 import Parametre from './Parametre';
+import CreatePost from './CreatePost';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path={'/register'} element={<Register />} />
           <Route path={'/onboarding'} element={<OnboardingPage />} />
           <Route path={'/parametre'} element={<Parametre />} />
+          <Route path={'/createpost'} element={<CreatePost />} />
         </Routes>
       </div>
     </Router>
