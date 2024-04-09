@@ -3,6 +3,9 @@ import InputText from "../Inputs/InputText";
 import InputPassword from "../Inputs/InputPassword";
 import {Link} from "react-router-dom";
 import secureLocalStorage from "react-secure-storage";
+import {ReCAPTCHA} from "react-google-recaptcha";
+
+const recaptchaRef = React.createRef();
 
 function WrapperRegister({textLogin, text}) {
     return (
@@ -16,6 +19,7 @@ function WrapperRegister({textLogin, text}) {
                     <InputText id="input_username" placeholder='Username'/>
                     <InputPassword id="input_password" placeholder='Password'/>
                     <InputPassword id="input_password_confirm" placeholder='Confirm Password'/>
+                    <ReCAPTCHA ref={recaptchaRef} size={"normal"} theme={"dark"} sitekey="6LdTfLUpAAAAAHLcpvD2RbJBbDF6OcF0-u1VIv2P"/>
                 </div>
                 <div className='flex flex-col mt-12 gap-2'>
                     <button onClick={sendRegister} className='text-black bg-[#F9E900] hover:bg-[#FFF564] w-96 p-2 transition duration-300 rounded-lg border border-yellow-300 px-10 font-bold text-[15px]'>{textLogin}</button>
@@ -24,6 +28,14 @@ function WrapperRegister({textLogin, text}) {
             </div>
         </div>
     );
+}
+
+function submit(value) {
+    console.log(value);
+}
+
+function recaptchaChange(value) {
+    console.log(value);
 }
 
 function sendRegister() {
