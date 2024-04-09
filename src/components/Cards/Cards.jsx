@@ -4,35 +4,33 @@ import ButtonNitro from '../Buttons/ButtonNitro';
 import ButtonDynamite from '../Buttons/ButtonDynamite';
 import ButtonFork from '../Buttons/ButtonFork';
 import ButtonLike from '../Buttons/ButtonLike';
+import Timestamp from "react-timestamp";
 
 function Cards({
-    time,
-    srcImg,
-    name,
-    language,
-    id,
-    title,
-    post,
+    post
 }) {
 
   return (
     <div className='border-2 border-[#411A83] rounded-2xl w-auto p-3 my-4'>
       <div className='absolute'>
-        <p className='text-[#D4D3DC] text-sm'>{time}</p>
+        <Timestamp relative date={post.creationDate} className='text-[#D4D3DC] text-sm'></Timestamp>
       </div>
       <div className='flex items-center mt-2'>
         <div className='flex items-center border-4 rounded-full border-[#411A83]'>
-          <img src={srcImg} alt="A beautiful landscape" className='rounded-full h-12 w-12' />
+          <img alt="A beautiful landscape" className='rounded-full h-12 w-12' />
         </div>
         <div className='text-white ml-4 flex items-center'>
             <div className='flex'>
                 <div className='flex flex-col'>
-                    <h2 className='font-bold text-[20px] mr-4'>{name}</h2>
-                    <p className='text-[15px]'>{id}</p>
+                    <h2 className='font-bold text-[20px] mr-4'>{post.sender.displayName}</h2>
+                    <p className='text-[15px]'>@{post.sender.username}</p>
                 </div>
-                <div>
-                    <BadgeProduct text={language}/>
-                </div>
+                {
+                    post.sender.product &&
+                    <div>
+                        <BadgeProduct text={post.sender.product}/>
+                    </div>
+                }
                 <div>
                     <ButtonLike/>
                 </div>
@@ -47,7 +45,7 @@ function Cards({
           </div>
         </div>
         <div className='flex'>
-          <p className='text-white text-[20px] font-bold ml-2 mb-2'>{title}</p>
+            <p className='text-white text-[20px] ml-2 mb-2'>{post.message}</p>
         </div>
     </div>
   );

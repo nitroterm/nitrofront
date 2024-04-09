@@ -4,6 +4,8 @@ import InputPassword from "../Inputs/InputPassword";
 import {Link} from "react-router-dom";
 import secureLocalStorage from "react-secure-storage";
 import ReCAPTCHA from "react-google-recaptcha";
+import {nbRegister} from "../../lib/nitroback";
+
 const recaptchaRef = React.createRef();
 
 function WrapperRegister({textLogin, text}) {
@@ -42,17 +44,7 @@ function sendRegister() {
         return;
     }
     const challenge = recaptchaRef.current.getValue();
-    fetch('https://services.cacahuete.dev/api/nitroterm/v1/auth/register', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            username: document.getElementById('input_username').value,
-            password: document.getElementById('input_password').value,
-            reCaptchaChallenge: challenge
-        }),
-    })
+    nbRegister(document.getElementById('input_username').value, document.getElementById('input_password').value, challenge)
         .then((response) => response.json())
         .then((data) => {
             if (!data.success) {
