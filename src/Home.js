@@ -35,16 +35,6 @@ function Home() {
                             title={'Tema mon composant React :'}
                         />
                     </div>
-                    <div className='flex justify-center'>
-                        <Cards
-                            time={'03/03/2024 at 17:50'}
-                            srcImg={'https://picsum.photos/seed/picsum/200/300'}
-                            name={'Monsieur Front'}
-                            language={'React'}
-                            id={'@flofloflofloflo'}
-                            title={'Tema mon composant React :'}
-                        />
-                    </div>
                 </div>
             </div>
         </div>

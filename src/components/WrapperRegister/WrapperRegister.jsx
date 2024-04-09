@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 import secureLocalStorage from "react-secure-storage";
 import ReCAPTCHA from "react-google-recaptcha";
 const recaptchaRef = React.createRef();
-import ErrorHeader from "../ErrorHeader/ErrorHeader";
 
 function WrapperRegister({textLogin, text}) {
     return (

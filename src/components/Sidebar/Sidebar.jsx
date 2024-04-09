@@ -7,7 +7,7 @@ function Sidebar() {
   return (
     <div className='ml-16 mt-12 flex flex-col justify-between'>
         <div>
-            <ButtonRegister text="Write something"/>
+            <Link to="/createpost"><ButtonRegister text="Write something"/></Link>
             <ButtonMenu text="Your Feed"/>
         </div>
         <div className='flex flex-col items-center mb-4'>
