@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function Sidebar() {
   return (
     <div className='ml-16 mt-12 flex flex-col justify-between'>
-        <div className="">
+        <div>
             <ButtonRegister text="Write something"/>
             <ButtonMenu text="Your Feed"/>
         </div>
