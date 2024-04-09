@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 
 function Sidebar() {
   return (
-    <div className='ml-16 mt-12 flex flex-col justify-between'>
-        <div>
+    <div className='ml-16 mt-12 flex flex-col gap-[30rem]'>
+        <div className='mt-12'>
             <Link to="/createpost"><ButtonRegister text="Write something"/></Link>
             <ButtonMenu text="Your Feed"/>
         </div>

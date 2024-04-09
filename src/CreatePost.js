@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './components/Header/Header'
+import Sidebar from './components/Sidebar/Sidebar'
 
 function CreatePost() {
   return (
@@ -7,7 +8,10 @@ function CreatePost() {
         <div>
             <Header />
         </div>
-        <h1 className='text-center text-white text-xl'>Create your post</h1>
+        <div className='absolute justify-between'>
+            <Sidebar />
+        </div>
+        <h1 className='text-center text-[#F9E900] text-3xl flex ml-[32rem] mt-12'>New Post</h1>
     </div>
   )
 }
