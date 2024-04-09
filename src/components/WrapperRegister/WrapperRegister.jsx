@@ -3,6 +3,7 @@ import InputText from "../Inputs/InputText";
 import InputPassword from "../Inputs/InputPassword";
 import {Link} from "react-router-dom";
 import secureLocalStorage from "react-secure-storage";
+import ErrorHeader from "../ErrorHeader/ErrorHeader";
 
 function WrapperRegister({textLogin, text}) {
     return (
@@ -27,10 +28,6 @@ function WrapperRegister({textLogin, text}) {
 }
 
 function sendRegister() {
-    if (document.getElementById('input_password').value !== document.getElementById('input_password_confirm').value) {
-        alert('Passwords do not match');
-        return;
-    }
     fetch('https://services.cacahuete.dev/api/nitroterm/v1/auth/register', {
         method: 'POST',
         headers: {

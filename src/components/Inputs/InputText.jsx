@@ -21,7 +21,7 @@ function InputText({ id, placeholder }) {
             <input
                 type='text'
                 id={id}
-                className='font-bold bg-[#0E0025] border border-purple-950 w-96 text-white rounded-lg pl-4 p-1 pt-6'
+                className='font-bold bg-[#0E0025] border border-purple-950 w-96 h-14 text-white rounded-lg pl-4 p-1 pt-4'
                 placeholder=' '
                 value={inputValue}
                 onChange={handleChange}
