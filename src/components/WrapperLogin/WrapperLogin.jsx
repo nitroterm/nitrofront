@@ -3,6 +3,7 @@ import InputText from "../Inputs/InputText";
 import InputPassword from "../Inputs/InputPassword";
 import {Link} from "react-router-dom";
 import secureLocalStorage from 'react-secure-storage';
+import {nbLogin} from "../../lib/nitroback";
 
 function WrapperLogin({textLogin, text}) {
     return (
@@ -26,16 +27,7 @@ function WrapperLogin({textLogin, text}) {
 }
 
 function sendRegister() {
-    fetch('https://services.cacahuete.dev/api/nitroterm/v1/auth/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            username: document.getElementById('input_username').value,
-            password: document.getElementById('input_password').value
-        }),
-    })
+    nbLogin(document.getElementById('input_username').value, document.getElementById('input_password').value)
         .then((response) => response.json())
         .then((data) => {
             if (data.success === false) {
