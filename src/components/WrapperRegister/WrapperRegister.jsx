@@ -14,7 +14,7 @@ function WrapperRegister({textLogin, text}) {
                 <img className='w-64 h-24 pb-4' src={require('../img/logo.png')} alt="logo"/>
                 <h1 className='font-bold pt-6 pl-5 text-3xl text-[#F9E900]'>Create your account</h1>
             </div>
-            <div className='flex flex-col items-center mr-16 gap-12 justify-center'>
+            <div className='flex flex-col items-center mr-16 justify-center'>
                 <div className='flex flex-col gap-2 mt-36'>
                     <InputText id="input_username" placeholder='Username'/>
                     <InputPassword id="input_password" placeholder='Password'/>
@@ -35,14 +35,6 @@ function WrapperRegister({textLogin, text}) {
             </div>
         </div>
     );
-}
-
-function submit(value) {
-    console.log(value);
-}
-
-function recaptchaChange(value) {
-    console.log(value);
 }
 
 function sendRegister() {
