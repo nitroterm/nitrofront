@@ -11,7 +11,7 @@ function WrapperRegister({textLogin, text}) {
     return (
         <div className='flex bg-[#080016] text-white pb-20 pl-10 border border-purple-900 rounded-lg'>
             <div className='flex flex-col mb-44 mr-36 mt-8'>
-                <img className='w-64 h-24 pb-4' src={require('../img/logo.png')} alt="logo"/>
+                <Link to="/"><img className='w-64 h-24 pb-4' src={require('../img/logo.png')} alt="logo"/></Link>
                 <h1 className='font-bold pt-6 pl-5 text-3xl text-[#F9E900]'>Create your account</h1>
             </div>
             <div className='flex flex-col items-center mr-16 justify-center'>
