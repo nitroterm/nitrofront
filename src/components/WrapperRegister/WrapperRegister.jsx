@@ -53,7 +53,6 @@ function sendRegister(setLoginSuccess, setErrorMessage) {
         return;
     }
 
-    const challenge = recaptchaRef.current.getValue();
     nbRegister(document.getElementById('input_username').value, document.getElementById('input_password').value, challenge)
         .then((response) => response.json())
         .then((data) => {

@@ -33,7 +33,7 @@ function WrapperLogin({textLogin, text}) {
     );
 }
 
-function sendRegister() {
+function sendRegister(setLoginSuccess, setErrorMessage) {
     nbLogin(document.getElementById('input_username').value, document.getElementById('input_password').value)
         .then((response) => response.json())
         .then((data) => {
