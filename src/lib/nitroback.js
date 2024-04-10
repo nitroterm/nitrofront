@@ -34,13 +34,19 @@ export function nbRegister(username, password, challenge) {
 }
 
 export function nbAuthorized(url) {
-    return fetch(url, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + secureLocalStorage.getItem('token'),
-        },
-    })
+    return secureLocalStorage.getItem('token') !== null ? fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + secureLocalStorage.getItem('token'),
+            },
+        })
+        : fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
 }
 
 export function nbGetUser() {

@@ -13,7 +13,7 @@ function Cards({
   return (
     <div className='border-2 border-[#411A83] rounded-2xl w-auto p-3 my-4'>
       <div className='absolute'>
-        <Timestamp relative date={post.creationDate} className='text-[#D4D3DC] text-sm'></Timestamp>
+        <Timestamp relativex date={post.creationDate} className='text-[#D4D3DC] text-sm'></Timestamp>
       </div>
       <div className='flex items-center mt-2'>
         <div className='flex items-center border-4 rounded-full border-[#411A83]'>

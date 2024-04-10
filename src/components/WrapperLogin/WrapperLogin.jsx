@@ -31,6 +31,9 @@ function sendRegister() {
         .then((response) => response.json())
         .then((data) => {
             if (data.success === false) {
+                if (data.slug === 'unauthorized')
+                    secureLocalStorage.removeItem('token');
+
                 alert(data.message);
                 return;
             }

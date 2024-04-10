@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import Cards from './components/Cards/Cards.jsx';
 import Sidebar from './components/Sidebar/Sidebar.jsx';
 import {nbGetFeed} from "./lib/nitroback";
+import secureLocalStorage from "react-secure-storage";
 
 function Home() {
     const [posts, setPosts] = useState([]);
@@ -13,6 +14,12 @@ function Home() {
         nbGetFeed()
             .then(data => data.json())
             .then(data => {
+                if (!data.success && data.slug === 'invalid_token')
+                {
+                    secureLocalStorage.removeItem('token');
+                    return;
+                }
+
                 setPosts(data.data)
             })
     }, []);
