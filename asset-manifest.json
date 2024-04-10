@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/nitrofront/static/css/main.76a5c1f5.css",
-    "main.js": "/nitrofront/static/js/main.af4f87b0.js",
+    "main.js": "/nitrofront/static/js/main.5fd92d32.js",
     "static/media/Icon.png": "/nitrofront/static/media/Icon.3df27aaff4be9dca203d.png",
     "index.html": "/nitrofront/index.html",
     "main.76a5c1f5.css.map": "/nitrofront/static/css/main.76a5c1f5.css.map",
-    "main.af4f87b0.js.map": "/nitrofront/static/js/main.af4f87b0.js.map"
+    "main.5fd92d32.js.map": "/nitrofront/static/js/main.5fd92d32.js.map"
   },
   "entrypoints": [
     "static/css/main.76a5c1f5.css",
-    "static/js/main.af4f87b0.js"
+    "static/js/main.5fd92d32.js"
   ]
 }
