@@ -8,14 +8,14 @@ function Home() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        if (posts.length > 0) return;
+        if (posts !== undefined && posts.length > 0) return;
 
         nbGetFeed()
             .then(data => data.json())
             .then(data => {
                 setPosts(data.data)
             })
-    }, [posts.length]);
+    }, []);
 
     return (
         <div>
@@ -28,7 +28,7 @@ function Home() {
                     <Sidebar/>
                 </div>
                 {
-                    posts.length > 0 ?
+                    posts && posts.length > 0 ?
                         posts.map((post, i) => {
                             return (
                                 <div className='flex justify-center'>
