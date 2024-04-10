@@ -4,6 +4,7 @@ import InputPassword from "../Inputs/InputPassword";
 import {Link} from "react-router-dom";
 import secureLocalStorage from 'react-secure-storage';
 import ErrorHeader from "../ErrorHeader/ErrorHeader";
+import {nbLogin} from "../../lib/nitroback";
 
 function WrapperLogin({textLogin, text}) {
     const [loginSuccess, setLoginSuccess] = useState(true);
@@ -11,7 +12,7 @@ function WrapperLogin({textLogin, text}) {
     return (
         <div className='flex bg-[#080016] text-white justify-center items-center pb-20 pl-10 pr-10 border border-purple-900 rounded-lg'>
             <div className='flex flex-col mb-44 mr-32'>
-                <img className='w-64 h-24 pb-4' src={require('../img/logo.png')} alt="logo"/>
+                <Link to="/"><img className='w-64 h-24 pb-4' src={require('../img/logo.png')} alt="logo"/></Link>
                 <h1 className='font-bold pt-6 pl-5 text-3xl text-[#F9E900]'>Login to your account</h1>
             </div>
             <div className='flex flex-col items-center mr-6 gap-12 mt-28'>
@@ -32,22 +33,14 @@ function WrapperLogin({textLogin, text}) {
     );
 }
 
-function sendRegister(setLoginSuccess, setErrorMessage) {
-    fetch('https://services.cacahuete.dev/api/nitroterm/v1/auth/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            username: document.getElementById('input_username').value,
-            password: document.getElementById('input_password').value
-        }),
-    })
+function sendRegister() {
+    nbLogin(document.getElementById('input_username').value, document.getElementById('input_password').value)
         .then((response) => response.json())
         .then((data) => {
             if (!data.success) {
                 setErrorMessage(data.message);
                 setLoginSuccess(false);
+              
                 return;
             }
 
