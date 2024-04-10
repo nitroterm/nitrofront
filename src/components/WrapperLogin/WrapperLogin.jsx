@@ -47,6 +47,7 @@ function sendRegister(setLoginSuccess, setErrorMessage) {
         .then((data) => {
             if (!data.success) {
                 setErrorMessage(data.message);
+                setLoginSuccess(false);
                 return;
             }
 
