@@ -5,6 +5,7 @@ import ButtonDynamite from '../Buttons/ButtonDynamite';
 import ButtonFork from '../Buttons/ButtonFork';
 import ButtonLike from '../Buttons/ButtonLike';
 import Timestamp from "react-timestamp";
+import {nbGetProfilePictureUrl} from "../../lib/nitroback";
 
 function Cards({
     post
@@ -17,12 +18,12 @@ function Cards({
       </div>
       <div className='flex items-center mt-2'>
         <div className='flex items-center border-4 rounded-full border-[#411A83]'>
-          <img alt="A beautiful landscape" className='rounded-full h-12 w-12' />
+          <img alt="A beautiful landscape" className='rounded-full h-12 w-12' src={nbGetProfilePictureUrl(post.sender)} />
         </div>
         <div className='text-white ml-4 flex items-center'>
             <div className='flex'>
                 <div className='flex flex-col'>
-                    <h2 className='font-bold text-[20px] mr-4'>{post.sender.displayName}</h2>
+                    <h2 className='font-bold text-[20px] mr-4'>{post.sender.displayName ?? post.sender.username}</h2>
                     <p className='text-[15px]'>@{post.sender.username}</p>
                 </div>
                 {

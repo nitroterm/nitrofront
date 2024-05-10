@@ -1,9 +1,17 @@
 import secureLocalStorage from "react-secure-storage";
 
-export const baseUrl = "https://services.cacahuete.dev/api/nitroterm/v1"
+export const domain = "https://services.cacahuete.dev"
+export const baseUrl = `${domain}/api/nitroterm/v1`
 
 export function nbLoggedIn() {
     return secureLocalStorage.getItem('token') !== null
+}
+
+export function nbGetProfilePictureUrl(user) {
+    let url = user.profilePicture.toString();
+    if (url.startsWith('/')) url = url.substring(url.indexOf('/') + 1);
+
+    return `${domain}/${url}`
 }
 
 export function nbLogin(username, password) {
