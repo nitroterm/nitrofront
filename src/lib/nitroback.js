@@ -75,6 +75,10 @@ export function nbGetFeed() {
     return nbAuthorized(`${baseUrl}/feed`)
 }
 
+export function nbGetPost(id) {
+    return nbAuthorized(`${baseUrl}/posts/${id}`)
+}
+
 export function nbCreatePost(contents) {
     return fetch(`${baseUrl}/post`, {
         method: 'POST',

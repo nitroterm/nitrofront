@@ -26,8 +26,6 @@ export function Profile() {
             })
     }, []);
 
-    console.log(profile);
-
     return profile === undefined ? <></> : (
         <div className="flex flex-col justify-center w-full gap-2">
             <div className="flex flex-row gap-2">

@@ -69,7 +69,7 @@ function handlePostSend() {
                 return;
             }
 
-            console.log(data);
+            window.location = `/#/post?id=${data.data.id}`;
         })
         .catch((error) => {
             alert(error.message);
