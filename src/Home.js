@@ -34,16 +34,18 @@ function Home() {
                 <div className='absolute'>
                     <Sidebar/>
                 </div>
-                {
-                    posts && posts.length > 0 ?
-                        posts.map((post, i) => {
-                            return (
-                                <div className='flex justify-center'>
-                                    <Cards post={post}/>
-                                </div>
-                            )
-                        }) : "Please wait"
-                }
+                <div className='flex flex-col justify-center'>
+                    {
+                        posts && posts.length > 0 ?
+                            posts.map((post, i) => {
+                                return (
+                                    <div className='flex justify-center'>
+                                        <Cards post={post}/>
+                                    </div>
+                                )
+                            }) : "Please wait"
+                    }
+                </div>
             </div>
         </div>
     );

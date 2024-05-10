@@ -12,7 +12,7 @@ function Cards({
 }) {
 
   return (
-    <div className='border-2 border-[#411A83] rounded-2xl w-auto p-3 my-4'>
+    <div className='border-2 border-[#411A83] rounded-2xl w-[500px] p-3 my-4'>
       <div className='absolute'>
         <Timestamp relativex date={post.creationDate} className='text-[#D4D3DC] text-sm'></Timestamp>
       </div>
