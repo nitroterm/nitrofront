@@ -41,7 +41,7 @@ function Home() {
                         posts && posts.length > 0 ?
                             posts.map((post, i) => {
                                 return (
-                                    <Cards post={post}/>
+                                    <Cards post={post} interactable={true}/>
                                 )
                             }) : "Please wait"
                     }

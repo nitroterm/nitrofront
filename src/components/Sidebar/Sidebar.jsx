@@ -14,8 +14,8 @@ function Sidebar() {
           {
               nbLoggedIn() ? <>
                   <div className='flex flex-col items-stretch gap-2'>
-                      <Link to="/createpost"><ButtonPrimary text="Write something"/></Link>
-                      <Link to="/createpost"><ButtonSecondary text="Your feed"/></Link>
+                      <Link to="/write"><ButtonPrimary text="Write something"/></Link>
+                      <Link to="/"><ButtonSecondary text="Your feed"/></Link>
                   </div>
               </> : <></>
           }
