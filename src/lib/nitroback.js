@@ -19,6 +19,10 @@ export function nbLogin(username, password) {
     })
 }
 
+export function nbLogout() {
+    return nbAuthorized(`${baseUrl}/auth/logout`)
+}
+
 export function nbRegister(username, password, challenge) {
     return fetch(`${baseUrl}/auth/register`, {
         method: 'POST',
