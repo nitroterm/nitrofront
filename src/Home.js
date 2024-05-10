@@ -31,7 +31,7 @@ function Home() {
             </div>
             <div className='flex flex-col justify-center mt-12'>
                 <h1 className='text-[#F9E900] text-center text-bold text-[30px] mb-4 md:mr-72'>Your Feed</h1>
-                <div className='absolute'>
+                <div className='fixed'>
                     <Sidebar/>
                 </div>
                 <div className='flex flex-col justify-center'>
