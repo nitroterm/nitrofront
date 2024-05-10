@@ -1,15 +1,17 @@
 import React from 'react'
+import sendIcon from '../img/send_icon.svg';
 
-function ButtonArrow() {
+function ButtonArrow({onClick = undefined}) {
   return (
     <div>
-        <button 
-            className='bg-[#F9E900] hover:bg-[#FFF564] rounded-xl w-12 h-12 flex items-center justify-center'
+        <button
+            onClick={onClick}
+            className='bg-[#F9E900] hover:bg-[#FFF564] rounded-md w-10 h-10 flex items-center justify-center'
         >
             <img 
-                src={require('../img/arrow.png')} 
-                alt=''
-                className='w-6 h-6'
+                src={sendIcon}
+                alt='Send'
+                className='w-4 h-4'
             />
         </button>
     </div>

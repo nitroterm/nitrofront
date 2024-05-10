@@ -3,6 +3,12 @@ import secureLocalStorage from "react-secure-storage";
 export const domain = "https://services.cacahuete.dev"
 export const baseUrl = `${domain}/api/nitroterm/v1`
 
+export let connectedUser = undefined;
+
+export function nbSetConnectedUser(user) {
+    connectedUser = user;
+}
+
 export function nbLoggedIn() {
     return secureLocalStorage.getItem('token') !== null
 }
@@ -67,4 +73,17 @@ export function nbGetUser() {
 
 export function nbGetFeed() {
     return nbAuthorized(`${baseUrl}/feed`)
+}
+
+export function nbCreatePost(contents) {
+    return fetch(`${baseUrl}/post`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + secureLocalStorage.getItem('token'),
+        },
+        body: JSON.stringify({
+            contents: contents
+        })
+    });
 }

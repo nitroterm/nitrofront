@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from "react";
-import {nbGetFeed, nbGetProfilePictureUrl, nbGetUser, nbLogout} from "../../lib/nitroback";
+import {
+    connectedUser,
+    nbGetFeed,
+    nbGetProfilePictureUrl,
+    nbGetUser,
+    nbLogout,
+    nbSetConnectedUser
+} from "../../lib/nitroback";
 import secureLocalStorage from "react-secure-storage";
 import ButtonSecondary from "../Buttons/ButtonSecondary";
 
@@ -14,6 +21,7 @@ export function Profile() {
             .then(data => {
                 if (!data.success) return;
 
+                nbSetConnectedUser(data.data);
                 setProfile(data.data)
             })
     }, []);
