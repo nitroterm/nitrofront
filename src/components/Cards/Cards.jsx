@@ -34,9 +34,9 @@ function Post(post) {
             </div>
             <div className='ml-auto flex items-end'>
                 <div className='ml-2 flex flex-col gap-2 items-center'>
-                    <ButtonNitro/>
-                    <ButtonDynamite/>
-                    <ButtonFork/>
+                    <ButtonNitro post={post}/>
+                    <ButtonDynamite post={post}/>
+                    <ButtonFork post={post}/>
                 </div>
             </div>
         </div>

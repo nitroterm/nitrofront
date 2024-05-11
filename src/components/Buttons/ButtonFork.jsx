@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-function ButtonFork() {
+function ButtonFork({post}) {
 
     const [clicked, setClicked] = useState(false);
     const [hover, setHover] = useState(false);

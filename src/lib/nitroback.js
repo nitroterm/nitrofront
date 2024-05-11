@@ -51,9 +51,9 @@ export function nbRegister(username, password, challenge) {
     })
 }
 
-export function nbAuthorized(url) {
+export function nbAuthorized(url, method = 'GET') {
     return secureLocalStorage.getItem('token') !== null ? fetch(url, {
-            method: 'GET',
+            method: method,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + secureLocalStorage.getItem('token'),
@@ -77,6 +77,14 @@ export function nbGetFeed() {
 
 export function nbGetPost(id) {
     return nbAuthorized(`${baseUrl}/posts/${id}`)
+}
+
+export function nbNitronize(id) {
+    return nbAuthorized(`${baseUrl}/posts/${id}/nitronize`, 'POST')
+}
+
+export function nbDynamite(id) {
+    return nbAuthorized(`${baseUrl}/posts/${id}/dynamite`, 'POST')
 }
 
 export function nbCreatePost(contents) {
