@@ -30,20 +30,22 @@ function Home() {
                 <Header/>
             </div>
             <div className='flex flex-col justify-center mt-12'>
-                <h1 className='text-[#F9E900] text-center text-bold text-[30px] mb-4 md:mr-72'>Your Feed</h1>
-                <div className='absolute'>
+                <div className='fixed'>
                     <Sidebar/>
                 </div>
-                {
-                    posts && posts.length > 0 ?
-                        posts.map((post, i) => {
-                            return (
-                                <div className='flex justify-center'>
-                                    <Cards post={post}/>
-                                </div>
-                            )
-                        }) : "Please wait"
-                }
+                <div className='flex flex-col justify-center items-center mt-10'>
+                    <h1 className='text-[#F9E900] text-bold text-[30px] w-[500px]'>
+                        Your Feed
+                    </h1>
+                    {
+                        posts && posts.length > 0 ?
+                            posts.map((post, i) => {
+                                return (
+                                    <Cards post={post} interactable={true}/>
+                                )
+                            }) : "Please wait"
+                    }
+                </div>
             </div>
         </div>
     );
