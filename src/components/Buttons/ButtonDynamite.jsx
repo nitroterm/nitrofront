@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function ButtonDynamite() {
+function ButtonDynamite({post}) {
 
     const [clicked, setClicked] = useState(false);
     const [count, setCount] = useState(0);
