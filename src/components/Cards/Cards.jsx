@@ -28,7 +28,14 @@ function Post(post) {
                          src={nbGetProfilePictureUrl(post.sender)}/>
                 </div>
                 <div className="flex flex-col justify-center">
-                    <p className="text-white font-semibold">{post.sender.displayName ?? post.sender.username}</p>
+                    <div className="flex flex-row gap-2">
+                        <p className="text-white font-semibold">{post.sender.displayName ?? post.sender.username}</p>
+                        {
+                            post.sender.product ?
+                                <p className="text-white font-semibold px-2 bg-[#411A83] rounded-md">{post.sender.product.title}</p> :
+                                <></>
+                        }
+                    </div>
                     <p className="text-white opacity-50">@{post.sender.username}</p>
                 </div>
             </div>

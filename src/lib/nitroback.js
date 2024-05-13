@@ -79,6 +79,14 @@ export function nbGetPost(id) {
     return nbAuthorized(`${baseUrl}/posts/${id}`)
 }
 
+export function nbGetProducts() {
+    return nbAuthorized(`${baseUrl}/products`)
+}
+
+export function nbQueryProducts(query) {
+    return nbAuthorized(`${baseUrl}/products/query/${query}`)
+}
+
 export function nbNitronize(id) {
     return nbAuthorized(`${baseUrl}/posts/${id}/nitronize`, 'POST')
 }

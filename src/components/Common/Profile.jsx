@@ -9,9 +9,11 @@ import {
 } from "../../lib/nitroback";
 import secureLocalStorage from "react-secure-storage";
 import ButtonSecondary from "../Buttons/ButtonSecondary";
+import {useNavigate} from "react-router-dom";
 
 export function Profile() {
     const [profile, setProfile] = useState(undefined);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (profile !== undefined) return;
@@ -34,21 +36,28 @@ export function Profile() {
                          src={nbGetProfilePictureUrl(profile)}/>
                 </div>
                 <div className="flex flex-col justify-center">
-                    <p className="text-white font-semibold">{profile.displayName}</p>
+                    <div className="flex flex-row gap-2">
+                        <p className="text-white font-semibold">{profile.displayName ?? profile.username}</p>
+                        {
+                            profile.product ?
+                                <p className="text-white font-semibold px-2 bg-[#411A83] rounded-md">{profile.product.title}</p> :
+                                <></>
+                        }
+                    </div>
                     <p className="text-white opacity-50">@{profile.username}</p>
                 </div>
             </div>
             <div>
-                <ButtonSecondary text="Logout" arrow={false} onClick={handleLogout}></ButtonSecondary>
+                <ButtonSecondary text="Logout" arrow={false} onClick={() => handleLogout(navigate)}></ButtonSecondary>
             </div>
         </div>
     )
 }
 
-function handleLogout() {
+function handleLogout(navigate) {
     nbLogout()
         .then(() => {
-            window.location = '/';
             secureLocalStorage.removeItem('token')
+            navigate(0)
         })
 }
