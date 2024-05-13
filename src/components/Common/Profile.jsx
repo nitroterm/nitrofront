@@ -9,9 +9,11 @@ import {
 } from "../../lib/nitroback";
 import secureLocalStorage from "react-secure-storage";
 import ButtonSecondary from "../Buttons/ButtonSecondary";
+import {useNavigate} from "react-router-dom";
 
 export function Profile() {
     const [profile, setProfile] = useState(undefined);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (profile !== undefined) return;
@@ -39,16 +41,15 @@ export function Profile() {
                 </div>
             </div>
             <div>
-                <ButtonSecondary text="Logout" arrow={false} onClick={handleLogout}></ButtonSecondary>
+                <ButtonSecondary text="Logout" arrow={false} onClick={() => handleLogout(navigate)}></ButtonSecondary>
             </div>
         </div>
     )
 }
 
-function handleLogout() {
+function handleLogout(navigate) {
     nbLogout()
         .then(() => {
-            window.location = '/';
             secureLocalStorage.removeItem('token')
         })
 }

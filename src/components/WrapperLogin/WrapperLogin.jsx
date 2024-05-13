@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import InputText from "../Inputs/InputText";
 import InputPassword from "../Inputs/InputPassword";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import secureLocalStorage from 'react-secure-storage';
 import ErrorHeader from "../ErrorHeader/ErrorHeader";
 import {nbLogin} from "../../lib/nitroback";
@@ -9,6 +9,8 @@ import {nbLogin} from "../../lib/nitroback";
 function WrapperLogin({textLogin, text}) {
     const [loginSuccess, setLoginSuccess] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
+    const navigate = useNavigate();
+
     return (
         <div className='flex bg-[#080016] text-white justify-center items-center pb-20 pl-10 pr-10 border border-purple-900 rounded-lg'>
             <div className='flex flex-col mb-44 mr-32'>
@@ -24,7 +26,7 @@ function WrapperLogin({textLogin, text}) {
                     <InputPassword id="input_password" placeholder='Password'/>
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <button onClick={() => sendRegister(setLoginSuccess, setErrorMessage)}
+                    <button onClick={() => sendRegister(setLoginSuccess, setErrorMessage, navigate)}
                             className='text-black bg-[#F9E900] hover:bg-[#FFF564] w-96 p-2 transition duration-300 rounded-lg border border-yellow-300 px-10 font-bold text-[15px]'>{text}</button>
                     <Link to="/register"><button className='text-white bg-[#290D59] hover:bg-[#411A83] w-96 p-2 transition duration-300 rounded-lg border border-purple-900 px-10 font-bold text-[15px]'>{textLogin}</button></Link>
                 </div>
@@ -33,7 +35,7 @@ function WrapperLogin({textLogin, text}) {
     );
 }
 
-function sendRegister(setLoginSuccess, setErrorMessage) {
+function sendRegister(setLoginSuccess, setErrorMessage, navigate) {
     nbLogin(document.getElementById('input_username').value, document.getElementById('input_password').value)
         .then((response) => response.json())
         .then((data) => {
@@ -46,7 +48,7 @@ function sendRegister(setLoginSuccess, setErrorMessage) {
 
             secureLocalStorage.setItem('token', data.data.token);
 
-            window.location.href = '/';
+            navigate('/')
         })
         .catch((error) => {
             setErrorMessage(error.message);
