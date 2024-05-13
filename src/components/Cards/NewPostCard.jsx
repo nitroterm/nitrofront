@@ -8,9 +8,11 @@ import Timestamp from "react-timestamp";
 import {connectedUser, nbCreatePost, nbGetProfilePictureUrl, nbGetUser, nbSetConnectedUser} from "../../lib/nitroback";
 import ButtonArrow from "../Buttons/ButtonArrow";
 import secureLocalStorage from "react-secure-storage";
+import {useNavigate} from "react-router-dom";
 
 function NewPostCard({}) {
     const [profile, setProfile] = useState(connectedUser);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (profile !== undefined) return;
@@ -51,13 +53,13 @@ function NewPostCard({}) {
                           className="text-white px-3 py-2 flex-1 object-cover border-2 bg-[#0D0023] border-[#411A83] rounded-md">
 
                 </textarea>
-                <ButtonArrow onClick={handlePostSend}></ButtonArrow>
+                <ButtonArrow onClick={() => handlePostSend(navigate)}></ButtonArrow>
             </div>
         </div>
     );
 }
 
-function handlePostSend() {
+function handlePostSend(navigate) {
     let input = document.getElementById("post-input");
     if (input.value.toString().length === 0) return;
 
@@ -69,7 +71,7 @@ function handlePostSend() {
                 return;
             }
 
-            window.location = `/#/post?id=${data.data.id}`;
+            navigate(`/#/post?id=${data.data.id}`)
         })
         .catch((error) => {
             alert(error.message);
