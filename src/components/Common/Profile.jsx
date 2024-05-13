@@ -58,6 +58,6 @@ function handleLogout(navigate) {
     nbLogout()
         .then(() => {
             secureLocalStorage.removeItem('token')
-            navigate('/')
+            navigate(0)
         })
 }
