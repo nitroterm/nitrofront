@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/nitrofront/static/css/main.073b4a04.css",
-    "main.js": "/nitrofront/static/js/main.8ad0a9b8.js",
+    "main.js": "/nitrofront/static/js/main.b645beb0.js",
     "static/media/Icon.png": "/nitrofront/static/media/Icon.3df27aaff4be9dca203d.png",
     "index.html": "/nitrofront/index.html",
     "static/media/send_icon.svg": "/nitrofront/static/media/send_icon.b97b0644cf2563e280023ef03f839f59.svg",
     "static/media/arrow_lined.svg": "/nitrofront/static/media/arrow_lined.673233d64c73b3cece8f3cc3c52443ed.svg",
     "static/media/cross.svg": "/nitrofront/static/media/cross.bd6b2ae909e4ec0e0bd624bc54bd0bfa.svg",
     "main.073b4a04.css.map": "/nitrofront/static/css/main.073b4a04.css.map",
-    "main.8ad0a9b8.js.map": "/nitrofront/static/js/main.8ad0a9b8.js.map"
+    "main.b645beb0.js.map": "/nitrofront/static/js/main.b645beb0.js.map"
   },
   "entrypoints": [
     "static/css/main.073b4a04.css",
-    "static/js/main.8ad0a9b8.js"
+    "static/js/main.b645beb0.js"
   ]
 }
