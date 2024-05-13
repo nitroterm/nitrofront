@@ -36,7 +36,14 @@ export function Profile() {
                          src={nbGetProfilePictureUrl(profile)}/>
                 </div>
                 <div className="flex flex-col justify-center">
-                    <p className="text-white font-semibold">{profile.displayName}</p>
+                    <div className="flex flex-row gap-2">
+                        <p className="text-white font-semibold">{profile.displayName ?? profile.username}</p>
+                        {
+                            profile.product ?
+                                <p className="text-white font-semibold px-2 bg-[#411A83] rounded-md">{profile.product.title}</p> :
+                                <></>
+                        }
+                    </div>
                     <p className="text-white opacity-50">@{profile.username}</p>
                 </div>
             </div>
