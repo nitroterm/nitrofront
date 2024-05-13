@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import InputText from "../Inputs/InputText";
 import InputBio from "../Inputs/InputBio";
 import SearchBar from "../SearchBar/SearchBar";
 import CardOnboarding from "../Cards/CardOnboarding";
 import Icon from "../img/Icon.png";
 import secureLocalStorage from 'react-secure-storage';
+import {nbGetProducts} from "../../lib/nitroback";
+import {useNavigate} from "react-router-dom";
 
 function OnboardingStep1({onNext, onPrev}) {
     const updateProfileCall = () => {
@@ -42,6 +44,23 @@ function OnboardingStep1({onNext, onPrev}) {
 }
 
 function OnboardingStep2({onNext, onPrev}) {
+    const [products, setProducts] = useState([]);
+    const [selectedProduct, setSelectedProduct] = useState(1);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        nbGetProducts()
+            .then(resp => resp.json())
+            .then(data => {
+                if (!data.success) {
+                    console.log(data.message)
+                    return
+                }
+
+                setProducts(data.data);
+            });
+    }, []);
+
     return (
         <div
             className='flex flex-wrap bg-[#080016] w-7/12 text-white justify-center items-center border border-purple-900 rounded-lg'>
@@ -62,14 +81,18 @@ function OnboardingStep2({onNext, onPrev}) {
                         <div className='flex flex-col gap-3'>
                             <SearchBar />
                             <div className='flex flex-wrap gap-1'>
-                                <button><CardOnboarding img={Icon} id="product_input" name={'Apple'} hashtag={'apple'}/></button>
-                                <button><CardOnboarding img={Icon} id="product_input" name={'Windobe'} hashtag={'windobe'}/></button>
-                                <button><CardOnboarding img={Icon} id="product_input" name={'Linux'} hashtag={'linux'}/></button>
+                                {
+                                    products.map((product) => (
+                                        <CardOnboarding img={Icon} product={product}
+                                                        selected={product.id === selectedProduct}
+                                                        setSelectedProduct={setSelectedProduct}/>
+                                    ))
+                                }
                             </div>
                         </div>
                         <div className='flex gap-2 mt-32 pb-16'>
                             <button onClick={onPrev} className='text-white bg-[#290D59] hover:bg-[#411A83] w-40 p-2 transition duration-300 rounded-lg border border-purple-900 px-10 font-bold text-[15px]'>Back</button>
-                            <button onClick={updateProfilStep2} className='text-black bg-[#F9E900] hover:bg-[#FFF564] w-56 p-2 transition duration-300 rounded-lg border border-yellow-300 px-10 font-bold text-[15px]'>Finish</button>
+                            <button onClick={() => updateProfilStep2(selectedProduct, navigate)} className='text-black bg-[#F9E900] hover:bg-[#FFF564] w-56 p-2 transition duration-300 rounded-lg border border-yellow-300 px-10 font-bold text-[15px]'>Finish</button>
                         </div>
                     </div>
                 </div>
@@ -86,7 +109,7 @@ function updateProfil(onNext) {
             'Authorization': 'Bearer ' + secureLocalStorage.getItem('token')
         },
         body: JSON.stringify({
-            username: document.getElementById('input_name').value,
+            displayName: document.getElementById('input_name').value,
             bio: document.getElementById('input_bio').value
         }),
     })
@@ -105,7 +128,7 @@ function updateProfil(onNext) {
         });
 }
 
-function updateProfilStep2(onNext) {
+function updateProfilStep2(productId, navigate) {
     fetch('https://services.cacahuete.dev/api/nitroterm/v1/user', {
         method: 'PUT',
         headers: {
@@ -113,7 +136,7 @@ function updateProfilStep2(onNext) {
             'Authorization': 'Bearer ' + secureLocalStorage.getItem('token')
         },
         body: JSON.stringify({
-            productId: document.getElementById('product_input').value
+            productId: productId
         }),
     })
         .then((response) => response.json())
@@ -123,8 +146,8 @@ function updateProfilStep2(onNext) {
                 alert(data.message);
                 return;
             }
-            
-            window.location.href = '/';
+
+            navigate('/')
         })
         .catch((error) => {
             console.error('Error:', error.message);
